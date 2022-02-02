@@ -1,0 +1,4 @@
+Nome,Tamanho,Alinhamento,Habitat,Força,Destreza,Constituição,Inteligência,Sabedoria,Carisma,CA,PV,DV,Ataque 1,Ataque 2
+Drakold,Pequeno,Caótico,Subterrâneo,9,11,10,12,10,8,13,4,1/2,Lança +0 (1d6-1),Adaga +0 (1d4-1)
+Gnoll,Médio,Caótico,Planíce,14,14,10,11,9,10,14,16,2,Machado +2 (1d6+2),Mordida +2 (1d6+2)
+Grick,Médio,Neutro,Subterrâneo,15,10,15,3,14,3,14,30,3,Mordida +1 (1d4+2),Tentáculos +2 (1d4+2)
