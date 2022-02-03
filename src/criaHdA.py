@@ -1,25 +1,17 @@
-import random as rd
+# import random as rd
 
 
 class criaHdA:
 
-    def __init__(self, nome, lvl):
+    def __init__(self, nome, lvl, tabela_HdA):
         self.name = nome
         self.classe = 'Homem-de-Armas'
-        self.lvl = lvl
-        self.pontos_de_vida = 10
-        self.acerto = 1
+        self.lvl = tabela_HdA[lvl - 1][0]
+        self.xp = tabela_HdA[lvl - 1][1]
+        self.dv = tabela_HdA[lvl - 1][2]
+        self.ba = tabela_HdA[lvl - 1][3]
+        self.ba_2 = tabela_HdA[lvl - 1][4]
+        self.jp = tabela_HdA[lvl - 1][5]
 
-    def status(self):
-        print('*******************************')
-        print('{} é um {} de lvl {}'.format(self.name, self.classe, self.lvl))
-        print('Sua arma é um Machado')
-        print('*******************************')
-
-    def ataque(self, ba):
-        print('*******************************')
-        print('Machado de Batalha | 1d10 | +4 BA')
-        acerto = rd.randrange(1, 21) + ba
-        print('Você rolou um {} no dado!'.format(acerto))
-        print('*******************************')
-        return acerto
+    def status(self, lvl):
+        print('Seu nível é {}'.format(lvl))
