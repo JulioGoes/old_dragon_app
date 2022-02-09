@@ -13,5 +13,8 @@ class criaHdA:
         self.ba_2 = tabela_HdA[lvl - 1][4]
         self.jp = tabela_HdA[lvl - 1][5]
 
-    def status(self, lvl):
-        print('Seu nível é {}'.format(lvl))
+    def status(self):
+        print('INFORMAÇÕES BÁSICAS')
+        print('Classe: {} | Nível: {}'.format(self.classe, self.lvl))
+        print('XP: {} | DV: {} | BA: {} | JP: {}'.format(self.xp, self.dv,
+                                                         self.ba, self.jp))
