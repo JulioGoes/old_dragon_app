@@ -1,6 +1,3 @@
-# import random as rd
-
-
 class criaHdA:
 
     def __init__(self, nome, lvl, tabela_HdA):
