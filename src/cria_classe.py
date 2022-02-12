@@ -30,9 +30,15 @@ class criaClerigo(criaClasse):
         super().__init__(nome, nivel, progressao)
         self.classe = 'Clerigo'
         self.hp = 8 * self.dv
+        self.c1 = progressao[nivel - 1][6]
+        self.c2 = progressao[nivel - 1][7]
+        self.c3 = progressao[nivel - 1][8]
 
     def status(self):
         super().status(self.hp, self.classe)
+        print('')
+        print('****ESPAÇOS DE MAGIA****')
+        print(f'1º: {self.c1} | 2º: {self.c2} | 3º: {self.c3}')
 
 
 class criaHdA(criaClasse):
@@ -52,9 +58,15 @@ class criaMago(criaClasse):
         super().__init__(nome, nivel, progressao)
         self.classe = 'Mago'
         self.hp = 4 * self.dv
+        self.c1 = progressao[nivel - 1][6]
+        self.c2 = progressao[nivel - 1][7]
+        self.c3 = progressao[nivel - 1][8]
 
     def status(self):
         super().status(self.hp, self.classe)
+        print('')
+        print('****ESPAÇOS DE MAGIA****')
+        print(f'1º: {self.c1} | 2º: {self.c2} | 3º: {self.c3}')
 
 
 class criaLadrao(criaClasse):
