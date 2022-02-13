@@ -1,4 +1,4 @@
-Nível,XP,DV,BA,JP
+nivel,xp,dado_de_vida,base_de_ataque,jogada_de_protecao
 1,0,1,1,15
 2,1250,2,1,15
 3,2500,3,2,15

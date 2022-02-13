@@ -11,8 +11,8 @@ def cria_tabela_classe(nome):
     conn = sqlite3.connect('bancodedados/bancodedados.db')
     df = pd.read_csv('arquivos/lv5_' + nome + '_progressao.csv')
     conn.execute(
-        'CREATE TABLE IF NOT EXISTS ' + nome + ' (Nível text, XP int, \
-        DV int, BA int, JP int)'
+        'CREATE TABLE IF NOT EXISTS ' + nome + ' (nivel int, XP int,\
+         dado_de_vida int, base_de_ataque int, jogada_de_protecao int)'
     )
     df.to_sql(name=nome, con=conn, if_exists='replace', index=False)
 
@@ -29,39 +29,21 @@ def cria_tabela_magia(nome):
     conn = sqlite3.connect('bancodedados/bancodedados.db')
     df = pd.read_csv('arquivos/lv5_' + nome + '_espacos-de-magia.csv')
     conn.execute(
-        'CREATE TABLE IF NOT EXISTS ' + nome + ' (Nivel int, 1º int, 2º int, \
-        3º int, 4º int, 5º int, 6º int, 7º int)'
+        'CREATE TABLE IF NOT EXISTS ' + nome + '_magia (nivel int, primeiro_circulo int,\
+         segundo_circulo int, terceiro_circulo int, quarto_circulo int,\
+         quinto_circulo int, sexto_circulo int, setimo_circulo int)'
     )
-    df.to_sql(name=nome, con=conn, if_exists='replace', index=False)
+    df.to_sql(name=nome + "_magia", con=conn, if_exists='replace', index=False)
 
     conn.commit()
     conn.close()
 
 
-# A função a seguir coleta
-def cria_lista_classe(classe):
-
-    conn = sqlite3.connect('bancodedados/bancodedados.db')
-    con = conn.cursor()
-
-    lista = []
-    if classe == 'mago' or classe == 'clerigo':
-        for row in con.execute('SELECT * FROM ' + classe + ' INNER \
-                                JOIN magias_' + classe + ' ON ' +
-                               classe + '.Nível = \
-                                magias_' + classe + '.Nivel'):
-            lista.append(row)
-    else:
-        for row in con.execute('SELECT * FROM ' + classe + ''):
-            lista.append(row)
-    return lista
-
-
-classes = ['clerigo', 'hda', 'mago', 'ladrao']
+classes = ['clerigo', 'hda', 'ladrao', 'mago']
 classes_conjuradoras = ['clerigo', 'mago']
 
-# for classe_conjuradora in classes_conjuradoras:
-#     cria_tabela_classe(classe_conjuradora)
+for classe_conjuradora in classes_conjuradoras:
+    cria_tabela_magia(classe_conjuradora)
 
-# for classe in classes:
-#     cria_tabela_classe(classe)
+for classe in classes:
+    cria_tabela_classe(classe)

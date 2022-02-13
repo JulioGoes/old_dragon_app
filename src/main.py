@@ -1,5 +1,5 @@
 from cria_classe import criaClerigo, criaHdA, criaMago, criaLadrao
-from cria_bancodedados import cria_lista_classe
+from consulta_bancodedados import cria_lista_classe
 import os
 
 os.system('clear')
