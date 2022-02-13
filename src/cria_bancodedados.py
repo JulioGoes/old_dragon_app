@@ -39,6 +39,56 @@ def cria_tabela_magia(nome):
     conn.close()
 
 
+def cria_tabela_talentos_de_ladrao(nome):
+
+    conn = sqlite3.connect('bancodedados/bancodedados.db')
+    df = pd.read_csv('arquivos/lv5_' + nome + '_talentos-de-ladrao.csv')
+    conn.execute(
+        'CREATE TABLE IF NOT EXISTS ' + nome + '_talentos (nivel int, arrombar text,\
+         armadilhas text, escalar int, furtividade int,\
+         punga int, percepcao text, ataque_furtivo int)'
+    )
+    df.to_sql(name=nome + "_talentos", con=conn,
+              if_exists='replace', index=False)
+
+    conn.commit()
+    conn.close()
+
+
+def cria_tabela_afastar_mortos_vivos(nome):
+
+    conn = sqlite3.connect('bancodedados/bancodedados.db')
+    df = pd.read_csv('arquivos/lv5_' + nome + '_afastar-mortos-vivos.csv')
+    conn.execute(
+        'CREATE TABLE IF NOT EXISTS ' + nome + '_afastar_mortos_vivos (\
+            nivel int,\
+            dado_de_vida1 text,\
+            dado_de_vida2 text,\
+            dado_de_vida3 text,\
+            dado_de_vida4 text,\
+            dado_de_vida5 text,\
+            dado_de_vida6 text,\
+            dado_de_vida7 text,\
+            dado_de_vida8 text,\
+            dado_de_vida9 text,\
+            dado_de_vida10 text,\
+            dado_de_vida11 text,\
+            dado_de_vida12 text,\
+            dado_de_vida13 text,\
+            dado_de_vida14 text,\
+            dado_de_vida15 text,\
+            dado_de_vida16 text,\
+            dado_de_vida17 text,\
+            dado_de_vida18 text\
+        )'
+    )
+    df.to_sql(name=nome + "_afastar_mortos_vivos",
+              con=conn, if_exists='replace', index=False)
+
+    conn.commit()
+    conn.close()
+
+
 classes = ['clerigo', 'hda', 'ladrao', 'mago']
 classes_conjuradoras = ['clerigo', 'mago']
 
@@ -47,3 +97,6 @@ for classe_conjuradora in classes_conjuradoras:
 
 for classe in classes:
     cria_tabela_classe(classe)
+
+cria_tabela_afastar_mortos_vivos('clerigo')
+cria_tabela_talentos_de_ladrao('ladrao')
