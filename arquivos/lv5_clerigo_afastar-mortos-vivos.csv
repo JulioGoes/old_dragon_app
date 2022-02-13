@@ -1,6 +1,6 @@
-nivel,dado_de_vida1,dado_de_vida2,dado_de_vida3,dado_de_vida4,dado_de_vida5,dado_de_vida6,dado_de_vida7,dado_de_vida8,dado_de_vida9,dado_de_vida10,dado_de_vida11,dado_de_vida12,dado_de_vida13,dado_de_vida14,dado_de_vida15,dado_de_vida16,dado_de_vida17,dado_de_vida18
-1,13,17,19,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N
-2,11,15,18,20,N,N,N,N,N,N,N,N,N,N,N,N,N,N
-3,9,13,17,19,N,N,N,N,N,N,N,N,N,N,N,N,N,N
-4,7,11,15,18,20,N,N,N,N,N,N,N,N,N,N,N,N,N
-5,5,9,13,17,19,N,N,N,N,N,N,N,N,N,N,N,N,N
+nivel,dado_de_vida1,dado_de_vida2,dado_de_vida3,dado_de_vida4,dado_de_vida5
+1,13,17,19,N,N
+2,11,15,18,20,N
+3,9,13,17,19,N
+4,7,11,15,18,20
+5,5,9,13,17,19

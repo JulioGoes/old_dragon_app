@@ -67,19 +67,7 @@ def cria_tabela_afastar_mortos_vivos(nome):
             dado_de_vida3 text,\
             dado_de_vida4 text,\
             dado_de_vida5 text,\
-            dado_de_vida6 text,\
-            dado_de_vida7 text,\
-            dado_de_vida8 text,\
-            dado_de_vida9 text,\
-            dado_de_vida10 text,\
-            dado_de_vida11 text,\
-            dado_de_vida12 text,\
-            dado_de_vida13 text,\
-            dado_de_vida14 text,\
-            dado_de_vida15 text,\
-            dado_de_vida16 text,\
-            dado_de_vida17 text,\
-            dado_de_vida18 text\
+            dado_de_vida6 text\
         )'
     )
     df.to_sql(name=nome + "_afastar_mortos_vivos",
