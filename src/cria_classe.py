@@ -33,12 +33,19 @@ class criaClerigo(criaClasse):
         self.c1 = progressao[nivel - 1][6]
         self.c2 = progressao[nivel - 1][7]
         self.c3 = progressao[nivel - 1][8]
+        self.afm1 = progressao[nivel - 1][14]
+        self.afm2 = progressao[nivel - 1][15]
+        self.afm3 = progressao[nivel - 1][16]
+        self.afm4 = progressao[nivel - 1][17]
+        self.afm5 = progressao[nivel - 1][18]
 
     def status(self):
         super().status(self.hp, self.classe)
-        print('')
-        print('****ESPAÇOS DE MAGIA****')
+        print('\n****ESPAÇOS DE MAGIA****')
         print(f'1º: {self.c1} | 2º: {self.c2} | 3º: {self.c3}')
+        print('\n**AFASTAR MORTOS-VIVOS**')
+        print(f'1 DV: {self.afm1} | 2 DV: {self.afm2} | 3 DV: {self.afm3}')
+        print(f'4 DV: {self.afm4} | 5 DV: {self.afm5}')
 
 
 class criaHdA(criaClasse):
@@ -64,8 +71,7 @@ class criaMago(criaClasse):
 
     def status(self):
         super().status(self.hp, self.classe)
-        print('')
-        print('****ESPAÇOS DE MAGIA****')
+        print('\n****ESPAÇOS DE MAGIA****')
         print(f'1º: {self.c1} | 2º: {self.c2} | 3º: {self.c3}')
 
 
@@ -75,6 +81,20 @@ class criaLadrao(criaClasse):
         super().__init__(nome, nivel, progressao)
         self.classe = 'Ladrão'
         self.hp = 6 * self.dv
+        self.arrombar = progressao[nivel - 1][6]
+        self.armadilhas = progressao[nivel - 1][7]
+        self.escalar = progressao[nivel - 1][8]
+        self.furtividade = progressao[nivel - 1][9]
+        self.punga = progressao[nivel - 1][10]
+        self.percepcao = progressao[nivel - 1][11]
+        self.ataque_furtivo = progressao[nivel - 1][12]
+        print(progressao)
 
     def status(self):
         super().status(self.hp, self.classe)
+        print('\n')
+        print('**TALENTOS DE LADRÃO**')
+        print(f'Arrombar: {self.arrombar} | Armadilhas: {self.armadilhas}')
+        print(f'Escalar: {self.escalar}% | Furtividade: {self.furtividade}%')
+        print(f'Punga: {self.punga}% | Percepção: {self.percepcao} no 1d6')
+        print(f'Ataque Furtivo: {self.ataque_furtivo}X')
