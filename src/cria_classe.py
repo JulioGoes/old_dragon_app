@@ -13,11 +13,10 @@ class criaClasse:
         self.jp = progressao[nivel - 1][4]
 
     # O método status imprime na tela as informações do personagem
-    def status(self, hp, classe):
+    def status_classe(self, hp, classe):
         print('Nome: {} | Nível: {}'.format(self.nome.title(), self.lvl))
         print(f'PVs: {hp}/{hp} | Classe: {classe}')
-        print('XP: {} | DV: {} | BA: {} | JP: {}'.format(self.xp, self.dv,
-                                                         self.ba, self.jp))
+        print(f'XP: {self.xp} | DV: {self.dv} | BA: {self.ba} | JP: {self.jp}')
 
 
 # As classes a seguir são filhas de 'criaClasse, elas definem alguns
@@ -39,8 +38,8 @@ class criaClerigo(criaClasse):
         self.afm4 = progressao[nivel - 1][17]
         self.afm5 = progressao[nivel - 1][18]
 
-    def status(self):
-        super().status(self.hp, self.classe)
+    def status_classe(self, hp, classe):
+        super().status_classe(hp, classe)
         print('\n****ESPAÇOS DE MAGIA****')
         print(f'1º: {self.c1} | 2º: {self.c2} | 3º: {self.c3}')
         print('\n**AFASTAR MORTOS-VIVOS**')
@@ -52,11 +51,9 @@ class criaHdA(criaClasse):
 
     def __init__(self, nome, nivel, progressao):
         super().__init__(nome, nivel, progressao)
-        self.classe = 'Homem-de-Armas'
-        self.hp = 10 * self.dv
 
-    def status(self):
-        super().status(self.hp, self.classe)
+    def status_classe(self, hp, classe):
+        super().status_classe(hp, classe)
 
 
 class criaMago(criaClasse):
@@ -69,8 +66,8 @@ class criaMago(criaClasse):
         self.c2 = progressao[nivel - 1][7]
         self.c3 = progressao[nivel - 1][8]
 
-    def status(self):
-        super().status(self.hp, self.classe)
+    def status_classe(self, hp, classe):
+        super().status_classe(hp, classe)
         print('\n****ESPAÇOS DE MAGIA****')
         print(f'1º: {self.c1} | 2º: {self.c2} | 3º: {self.c3}')
 
@@ -88,12 +85,10 @@ class criaLadrao(criaClasse):
         self.punga = progressao[nivel - 1][10]
         self.percepcao = progressao[nivel - 1][11]
         self.ataque_furtivo = progressao[nivel - 1][12]
-        print(progressao)
 
-    def status(self):
-        super().status(self.hp, self.classe)
-        print('\n')
-        print('**TALENTOS DE LADRÃO**')
+    def status_classe(self, hp, classe):
+        super().status_classe(hp, classe)
+        print('\n**TALENTOS DE LADRÃO**\n')
         print(f'Arrombar: {self.arrombar} | Armadilhas: {self.armadilhas}')
         print(f'Escalar: {self.escalar}% | Furtividade: {self.furtividade}%')
         print(f'Punga: {self.punga}% | Percepção: {self.percepcao} no 1d6')
