@@ -1,4 +1,4 @@
-from consulta_bancodedados import buscaClerigo, buscaHdA,\
+from Database.consulta_bancodedados import buscaClerigo, buscaHdA,\
                                   buscaLadrao, buscaMago
 
 CLERIGO_PROGRESSAO, CLERIGO_AFASTAR, CLERIGO_MAGIAS = buscaClerigo()

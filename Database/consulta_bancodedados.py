@@ -2,7 +2,7 @@ import sqlite3
 
 
 def buscaClerigo():
-    connection = sqlite3.connect('bancodedados/bancodedados.db')
+    connection = sqlite3.connect('Database/bancodedados.db')
     cursor = connection.cursor()
 
     clerigo, clerigo_afastar, clerigo_magias = [], [], []
@@ -21,7 +21,7 @@ def buscaClerigo():
 
 
 def buscaHdA():
-    connection = sqlite3.connect('bancodedados/bancodedados.db')
+    connection = sqlite3.connect('Database/bancodedados.db')
     cursor = connection.cursor()
     hda = []
     for row in cursor.execute('SELECT * FROM hda'):
@@ -30,7 +30,7 @@ def buscaHdA():
 
 
 def buscaLadrao():
-    connection = sqlite3.connect('bancodedados/bancodedados.db')
+    connection = sqlite3.connect('Database/bancodedados.db')
     cursor = connection.cursor()
     ladrao, ladrao_talentos = [], []
     for row in cursor.execute('SELECT * FROM ladrao'):
@@ -41,7 +41,7 @@ def buscaLadrao():
 
 
 def buscaMago():
-    connection = sqlite3.connect('bancodedados/bancodedados.db')
+    connection = sqlite3.connect('Database/bancodedados.db')
     cursor = connection.cursor()
     mago, mago_magias = [], []
     for row in cursor.execute('SELECT * FROM mago'):

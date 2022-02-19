@@ -1,4 +1,4 @@
-from functions import cria_personagem
+from Functions.functions import cria_personagem
 import os
 
 os.system('clear')

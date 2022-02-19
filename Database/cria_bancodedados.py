@@ -8,7 +8,7 @@ import pandas as pd
 # passando também os dados do datafram para dentro da tabela
 def cria_tabela_classe(nome):
 
-    conn = sqlite3.connect('bancodedados/bancodedados.db')
+    conn = sqlite3.connect('bancodedados.db')
     df = pd.read_csv('arquivos/lv5_' + nome + '_progressao.csv')
     conn.execute(
         'CREATE TABLE IF NOT EXISTS ' + nome + ' (nivel int, XP int,\
@@ -26,7 +26,7 @@ def cria_tabela_classe(nome):
 # classes conjuradoras, e insere o dataframe nessa tabela.
 def cria_tabela_magia(nome):
 
-    conn = sqlite3.connect('bancodedados/bancodedados.db')
+    conn = sqlite3.connect('bancodedados.db')
     df = pd.read_csv('arquivos/lv5_' + nome + '_espacos-de-magia.csv')
     conn.execute(
         'CREATE TABLE IF NOT EXISTS ' + nome + '_magia (nivel int, primeiro_circulo int,\
@@ -41,7 +41,7 @@ def cria_tabela_magia(nome):
 
 def cria_tabela_talentos_de_ladrao(nome):
 
-    conn = sqlite3.connect('bancodedados/bancodedados.db')
+    conn = sqlite3.connect('bancodedados.db')
     df = pd.read_csv('arquivos/lv5_' + nome + '_talentos-de-ladrao.csv')
     conn.execute(
         'CREATE TABLE IF NOT EXISTS ' + nome + '_talentos (nivel int, arrombar text,\
@@ -57,7 +57,7 @@ def cria_tabela_talentos_de_ladrao(nome):
 
 def cria_tabela_afastar_mortos_vivos(nome):
 
-    conn = sqlite3.connect('bancodedados/bancodedados.db')
+    conn = sqlite3.connect('bancodedados.db')
     df = pd.read_csv('arquivos/lv5_' + nome + '_afastar-mortos-vivos.csv')
     conn.execute(
         'CREATE TABLE IF NOT EXISTS ' + nome + '_afastar_mortos_vivos (\

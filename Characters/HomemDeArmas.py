@@ -1,5 +1,5 @@
-from CLASSES_VARIAVEIS_GLOBAIS import HDA_PROGRESSAO
-from Classe import Classe
+from Global.CLASSES_VARIAVEIS_GLOBAIS import HDA_PROGRESSAO
+from SuperClass.Classe import Classe
 
 
 class HomemDeArmas(Classe):
