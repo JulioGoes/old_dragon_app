@@ -10,7 +10,7 @@ def buscaClasse(classe_escolhida, nome, nivel):
     elif classe_escolhida == 1:
         novo_personagem = HomemDeArmas(nome, nivel)
     elif classe_escolhida == 2:
-        novo_personagem = Ladrao(nome, nivel)
-    else:
         novo_personagem = Mago(nome, nivel)
+    else:
+        novo_personagem = Ladrao(nome, nivel)
     return novo_personagem

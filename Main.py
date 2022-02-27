@@ -15,4 +15,3 @@ os.system('clear')
 
 novo_personagem = buscaClasse(classe_escolhida, nome, nivel)
 novo_personagem.mostraStatus()
-novo_personagem.mostraEspacosDeMagia()
