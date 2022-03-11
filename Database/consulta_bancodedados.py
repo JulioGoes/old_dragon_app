@@ -51,3 +51,12 @@ def buscaMago():
                                FROM mago_magia'):
         mago_magias.append(row)
     return tuple(mago), tuple(mago_magias)
+
+
+def buscaRacas():
+    connection = sqlite3.connect('Database/bancodedados.db')
+    cursor = connection.cursor()
+    racas = []
+    for row in cursor.execute('SELECT * FROM racas'):
+        racas.append(row)
+    return tuple(racas)

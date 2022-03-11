@@ -90,15 +90,123 @@ def cria_tabela_afastar_mortos_vivos(nome):
     conn.close()
 
 
-classes = ['clerigo', 'hda', 'ladrao', 'mago']
-classes_conjuradoras = ['clerigo', 'mago']
+def cria_tabela_atributo_forca():
+    conn = sqlite3.connect('Database/bancodedados.db')
+    df = pd.read_csv('arquivos/atributo_forca.csv')
+    conn.execute(
+        'CREATE TABLE IF NOT EXISTS atributo_forca (forca text, ajuste int)'
+    )
+    df.to_sql(name='atributo_forca',
+              con=conn, if_exists='replace', index=False)
 
-for classe_conjuradora in classes_conjuradoras:
-    cria_tabela_magia(classe_conjuradora)
+    conn.commit()
+    conn.close()
 
-for classe in classes:
-    cria_tabela_classe(classe)
 
-cria_tabela_afastar_mortos_vivos('clerigo')
-cria_tabela_talentos_de_ladrao('ladrao')
-cria_tabela_racas()
+def cria_tabela_atributo_destreza():
+    conn = sqlite3.connect('Database/bancodedados.db')
+    df = pd.read_csv('arquivos/atributo_destreza.csv')
+    conn.execute(
+        'CREATE TABLE IF NOT EXISTS atributo_destreza (\
+            destreza text,\
+            ajuste int,\
+            armadilhas int,\
+            arrombar int,\
+            furtividade_pungar int\
+        )'
+    )
+    df.to_sql(name='atributo_destreza',
+              con=conn, if_exists='replace', index=False)
+
+    conn.commit()
+    conn.close()
+
+
+def cria_tabela_atributo_constituicao():
+    conn = sqlite3.connect('Database/bancodedados.db')
+    df = pd.read_csv('arquivos/atributo_constituicao.csv')
+    conn.execute(
+        'CREATE TABLE IF NOT EXISTS atributo_constituicao (\
+            constituicao text,\
+            ajuste int,\
+            ressurreicao int\
+        )'
+    )
+    df.to_sql(name='atributo_constituicao',
+              con=conn, if_exists='replace', index=False)
+
+    conn.commit()
+    conn.close()
+
+
+def cria_tabela_atributo_inteligencia():
+    conn = sqlite3.connect('Database/bancodedados.db')
+    df = pd.read_csv('arquivos/atributo_inteligencia.csv')
+    conn.execute(
+        'CREATE TABLE IF NOT EXISTS atributo_inteligencia (\
+            inteligencia text,\
+            idiomas_adicionais int,\
+            aprender_magia int,\
+            magias_adicionais text\
+        )'
+    )
+    df.to_sql(name='atributo_inteligencia',
+              con=conn, if_exists='replace', index=False)
+
+    conn.commit()
+    conn.close()
+
+
+def cria_tabela_atributo_sabedoria():
+    conn = sqlite3.connect('Database/bancodedados.db')
+    df = pd.read_csv('arquivos/atributo_sabedoria.csv')
+    conn.execute(
+        'CREATE TABLE IF NOT EXISTS atributo_sabedoria (\
+            sabedoria text,\
+            ajuste int,\
+            magias_adicionais text\
+        )'
+    )
+    df.to_sql(name='atributo_sabedoria',
+              con=conn, if_exists='replace', index=False)
+
+    conn.commit()
+    conn.close()
+
+
+def cria_tabela_atributo_carisma():
+    conn = sqlite3.connect('Database/bancodedados.db')
+    df = pd.read_csv('arquivos/atributo_carisma.csv')
+    conn.execute(
+        'CREATE TABLE IF NOT EXISTS atributo_carisma (\
+            carisma text,\
+            seguidores int,\
+            reacao int,\
+            mortos_vivos_afastados text\
+        )'
+    )
+    df.to_sql(name='atributo_carisma',
+              con=conn, if_exists='replace', index=False)
+
+    conn.commit()
+    conn.close()
+
+
+# classes = ['clerigo', 'hda', 'ladrao', 'mago']
+# classes_conjuradoras = ['clerigo', 'mago']
+
+# for classe_conjuradora in classes_conjuradoras:
+#     cria_tabela_magia(classe_conjuradora)
+
+# for classe in classes:
+#     cria_tabela_classe(classe)
+
+# cria_tabela_afastar_mortos_vivos('clerigo')
+# cria_tabela_talentos_de_ladrao('ladrao')
+# cria_tabela_racas()
+# cria_tabela_atributo_forca()
+# cria_tabela_atributo_destreza()
+# cria_tabela_atributo_constituicao()
+# cria_tabela_atributo_inteligencia()
+# cria_tabela_atributo_sabedoria()
+# cria_tabela_atributo_carisma()

@@ -14,4 +14,4 @@ classe_escolhida = int(input('Clerigo (0) | Homem-de-Armas (1)' +
 os.system('clear')
 
 novo_personagem = buscaClasse(classe_escolhida, nome, nivel)
-novo_personagem.mostraStatus()
+os.system('clear')
