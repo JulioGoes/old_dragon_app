@@ -2,13 +2,26 @@ import sqlite3
 import pandas as pd
 
 
+def cria_tabela_racas():
+    conn = sqlite3.connect('Database/bancodedados.db')
+    df = pd.read_csv('arquivos/racas.csv')
+    conn.execute(
+        'CREATE TABLE IF NOT EXISTS racas (nome text, alinhamento text,\
+         tamanho text, idade text, idioma text, atributo text, movimento text)'
+    )
+    df.to_sql(name='racas', con=conn, if_exists='replace', index=False)
+
+    conn.commit()
+    conn.close()
+
+
 # A função a seguir faz uma conexão com o banco de dados e
 # em seguida, transforma um arquivo csv em um dataframe, após isso
 # cria uma tabela genérica para a classe que foi usada como parâmetro
 # passando também os dados do datafram para dentro da tabela
 def cria_tabela_classe(nome):
 
-    conn = sqlite3.connect('bancodedados.db')
+    conn = sqlite3.connect('Database/bancodedados.db')
     df = pd.read_csv('arquivos/lv5_' + nome + '_progressao.csv')
     conn.execute(
         'CREATE TABLE IF NOT EXISTS ' + nome + ' (nivel int, XP int,\
@@ -26,7 +39,7 @@ def cria_tabela_classe(nome):
 # classes conjuradoras, e insere o dataframe nessa tabela.
 def cria_tabela_magia(nome):
 
-    conn = sqlite3.connect('bancodedados.db')
+    conn = sqlite3.connect('Database/bancodedados.db')
     df = pd.read_csv('arquivos/lv5_' + nome + '_espacos-de-magia.csv')
     conn.execute(
         'CREATE TABLE IF NOT EXISTS ' + nome + '_magia (nivel int, primeiro_circulo int,\
@@ -41,7 +54,7 @@ def cria_tabela_magia(nome):
 
 def cria_tabela_talentos_de_ladrao(nome):
 
-    conn = sqlite3.connect('bancodedados.db')
+    conn = sqlite3.connect('Database/bancodedados.db')
     df = pd.read_csv('arquivos/lv5_' + nome + '_talentos-de-ladrao.csv')
     conn.execute(
         'CREATE TABLE IF NOT EXISTS ' + nome + '_talentos (nivel int, arrombar text,\
@@ -57,7 +70,7 @@ def cria_tabela_talentos_de_ladrao(nome):
 
 def cria_tabela_afastar_mortos_vivos(nome):
 
-    conn = sqlite3.connect('bancodedados.db')
+    conn = sqlite3.connect('Database/bancodedados.db')
     df = pd.read_csv('arquivos/lv5_' + nome + '_afastar-mortos-vivos.csv')
     conn.execute(
         'CREATE TABLE IF NOT EXISTS ' + nome + '_afastar_mortos_vivos (\
@@ -88,3 +101,4 @@ for classe in classes:
 
 cria_tabela_afastar_mortos_vivos('clerigo')
 cria_tabela_talentos_de_ladrao('ladrao')
+cria_tabela_racas()
