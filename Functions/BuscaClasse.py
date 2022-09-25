@@ -4,6 +4,10 @@ from Characters.Mago import Mago
 from Characters.Ladrao import Ladrao
 
 
+# A função cria_personagem é responsável por criar o personagem
+# baseando-se da classe de personagem feita por parte do usuário
+# ela recebe o valor da escolha do usuário, e instancia a class
+# respectiva
 def buscaClasse(classe_escolhida, nome, nivel):
     if classe_escolhida == 0:
         novo_personagem = Clerigo(nome, nivel)
